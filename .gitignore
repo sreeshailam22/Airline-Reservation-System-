@@ -1,0 +1,6 @@
+downloads/
+*.db
+*.log
+*.tmp
+.DS_Store
+*.class

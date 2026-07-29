@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>registration</title>
+<script type="text/javascript">
+function country()
+{
+alert("in country");
+	var c = document.getElementById("country");
+	c.innerHTML = "";
+	var xmlreq = new XMLHttpRequest();
+	xmlreq.open("post","./CountryRetriveServlet",true);
+	xmlreq.send();
+	//alert("after send");
+	xmlreq.onreadystatechange = function ()
+	{
+		if(xmlreq.status==200&&xmlreq.readyState==4)
+		{
+//alert("in if");
+			var option = document.createElement("option");
+			option.text = "select";
+			option.value = "select";
+			c.add(option);
+			
+			var res = eval("("+xmlreq.responseText+")");
+			var country = res.country;
+			for(var i=0;i<country.length;i++)
+			{
+//alert("in for");
+					var option = document.createElement("option");
+				option.text = country[i].coname;
+				option.value = country[i].coid;
+				c.add(option);
+			}
+		}
+	}
+}
+function states()
+{
+
+	var co = document.getElementById("country").value;
+	alert(co);
+	
+	var c = document.getElementById("state");
+	c.innerHTML = "";
+	var xmlreq = new XMLHttpRequest();
+	xmlreq.open("post","./StateRetrieveServlet?co="+co+"",true);
+	
+	xmlreq.send();
+//alert("after send");
+	xmlreq.onreadystatechange = function ()
+	{
+		if(xmlreq.status==200&&xmlreq.readyState==4)
+		{
+//alert("in if");
+			var option = document.createElement("option");
+			option.text = "select";
+			option.value = "select";
+			c.add(option);
+			
+			var res = eval("("+xmlreq.responseText+")");
+			var country = res.state;
+
+			
+			
+			for(var i=0;i<country.length;i++)
+			{
+//alert("in for");
+					var option = document.createElement("option");
+				option.text = country[i].sname;
+				option.value = country[i].sid;
+				c.add(option);
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+function getcities()
+{
+
+alert("in city");
+var stateid = document.getElementById("state").value;
+//alert(co);
+
+var c = document.getElementById("city");
+c.innerHTML = "";
+var xmlreq = new XMLHttpRequest();
+xmlreq.open("post","./CityRetrieveServlet?s="+stateid+"",true);
+
+xmlreq.send();
+//alert("after send");
+xmlreq.onreadystatechange = function ()
+{
+	if(xmlreq.status==200&&xmlreq.readyState==4)
+	{
+//alert("in if");
+		var option = document.createElement("option");
+		option.text = "select";
+		option.value = "select";
+		c.add(option);
+		
+		var res = eval("("+xmlreq.responseText+")");
+		var city = res.city;
+
+		
+		
+		for(var i=0;i<city.length;i++)
+		{
+//alert("in for");
+				var option = document.createElement("option");
+			option.text = city[i].cname;
+			option.value = city[i].cid;
+			c.add(option);
+		}
+	}
+}
+
+
+
+}
+
+</script>
+
+
+</head>
+<body onload="country();" style="background-color: teal;"> 
+<center><h1>Airline Reservation System</h1></center>
+<hr></hr>
+<marquee><h1>Registration page</h1></marquee>
+<form action="UserRegistrationServlet" method="post">
+		<div align="center">
+		<fieldset>
+		<table>
+		<tr><td><b>Email *:</b></td><td><input type="text" name="email" /></td></tr>
+		<tr><td><b>Password *:</b></td><td><input type="password" name="password" /></td></tr>
+		
+		<tr><td><b>Fname*:</b></td><td><input type="text" name="fname" /></td></tr>
+			<tr><td><b>Lname *:</b></td><td> <input type="text" name="lname"/></td></tr>
+			<tr><td><b>Gender*:</b></td><td><input type="radio" value="male" name="gender"/>male
+			<input type="radio" value="female" name="gender">female</td><tr>
+			<tr><td><b>DOB *:</b></td><td><input type="date of birth" name="dob" /></td></tr>
+            			<tr><td><b>Telephone:</b></td><td><input type="text" name="phno" /></td></tr>
+			<tr><td><b>Address *:</b></td><td><input type="textarea" name="address" /></td></tr>
+			
+			<tr>
+	<td>
+	<b>country:</b></td>
+	<td>
+	<select name="country" id="country" onchange="states()">
+	<option value="country">select</option>
+	</select>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<b>state:</b></td>
+	<td>
+	<select name="state" id="state" onchange="getcities()">
+	<option value="state">select</option>
+
+	</select>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<b>city:</b></td>
+	<td>
+	<select name="cityid" id="city">
+	<option value="city">select</option>
+	</select>
+	</td>
+	</tr>	
+	
+   
+    <tr> <tD></tD> <td> <input type="submit" value="Submit" /> <input type="reset" value="Reset" /></td></tr>
+     </table>
+     </fieldset>
+	</div>
+	</form>
+ 
+
+
+</body>
+</html>
