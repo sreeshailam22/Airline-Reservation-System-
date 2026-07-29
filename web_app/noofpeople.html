@@ -36,24 +36,11 @@ a:hover,a:active{ background-color:#00ff66;}
 function getFlightId()
 {
 	var u=location.href;
-	alert("URL=="+u);
-
 	var a=new Array();
 	
 	a=u.split("=");
 
-	for(var k=0;k<a.length;k++)
-	{
-		alert("k=="+k);
-		alert("a=="+a[k]);
-	}
-
-	alert("Flight=="+a[1]);
-
 	document.getElementById("flightID").value=a[1];
-	
-
-	
 }
 
 

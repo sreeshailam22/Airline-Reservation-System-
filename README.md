@@ -55,3 +55,41 @@ We have upgraded this application from the original codebase to fix several crit
   - Account `30552909581` | PIN `5879` (y.saikrishna) — *Available: 2,000,000*
   - Account `33540765663` | PIN `3721` (t.srinivas) — *Available: 3,000,000*
   - Account `30345439612` | PIN `4690` (m.ganesh) — *Available: 4,000,000*
+
+---
+
+## 🖼️ Application Walkthrough & Demo Screenshots
+
+Below is the step-by-step process of the running web application, captured during a live transaction:
+
+### 1. Login Page
+![Login Page](screenshots/01_login_page.png)
+
+### 2. Home Dashboard
+![Home Page](screenshots/02_home_page.png)
+
+### 3. Flight Search Page
+![Search Page](screenshots/03_search_page.png)
+*(Selections: Source: Hyderabad | Destination: South Africa)*
+![Search Page Filled](screenshots/04_search_page_filled.png)
+
+### 4. Search Results & Flight List
+![Search Results](screenshots/05_search_results.png)
+
+### 5. Passenger Selection
+![Passenger Input](screenshots/06_noofpeople_page.png)
+
+### 6. Secure Bank Payment
+![Payment Page](screenshots/07_payment_page.png)
+
+### 7. Booking Success Confirmation
+![Booking Success](screenshots/08_booking_success.png)
+
+### 8. Dynamic Booking History (My Bookings)
+![Booking History](screenshots/09_my_bookings.png)
+
+### 9. Interactive Ticket Cancellation
+![Ticket Cancellation](screenshots/10_ticket_cancellation.png)
+
+### 10. Live Transaction Audit Logs
+![Transaction History](screenshots/11_transaction_history.png)
