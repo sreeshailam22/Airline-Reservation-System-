@@ -1,0 +1,8 @@
+# Force GitHub to detect source code inside the web_app directory
+web_app/**/*.java linguist-detectable=true
+web_app/**/*.jsp linguist-detectable=true
+web_app/**/*.html linguist-detectable=true
+web_app/**/*.sql linguist-detectable=true
+
+# Mark vendor libraries as ignored so they don't skew stats
+web_app/WEB-INF/lib/* linguist-vendored
