@@ -39,7 +39,7 @@ We have upgraded this application from the original codebase to fix several crit
    ./bin/startup.sh
    ```
 3. Open your browser and navigate to:
-   `http://localhost:8080/airlinereservation/login.html`
+   `http://localhost:8080/ROOT/login.html` (or rename the WAR file to `ROOT.war` and go to `http://localhost:8080/login.html`)
 
 ---
 
@@ -55,7 +55,7 @@ You can host this application online for free using **[Render](https://render.co
    - **Runtime**: Select **Docker** (Render will automatically auto-detect the `Dockerfile`).
    - **Instance Type**: Select **Free**.
 5. Click **Deploy Web Service**.
-6. Render will build the container and provide you with a live URL (e.g., `https://my-airline-system.onrender.com/airlinereservation/login.html`).
+6. Render will build the container and provide you with a live URL (e.g., `https://my-airline-system.onrender.com/login.html`).
 
 ---
 

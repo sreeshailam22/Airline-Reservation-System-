@@ -5,7 +5,7 @@ FROM tomcat:9.0-jdk11-openjdk-slim
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy the compiled war file into Tomcat's webapps folder as airlinereservation.war
-COPY airlinereservation1.war /usr/local/tomcat/webapps/airlinereservation.war
+COPY airlinereservation1.war /usr/local/tomcat/webapps/ROOT.war
 
 # Set environment variables if needed
 ENV PORT 8080
