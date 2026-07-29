@@ -43,6 +43,22 @@ We have upgraded this application from the original codebase to fix several crit
 
 ---
 
+## 🌐 Free Cloud Deployment (Render)
+
+You can host this application online for free using **[Render](https://render.com/)** and the included `Dockerfile`:
+
+1. Sign up for a free account at **[Render.com](https://render.com/)**.
+2. Click **New +** in the dashboard and select **Web Service**.
+3. Connect your GitHub repository (`Airline-Reservation-System-`).
+4. Configure the service settings:
+   - **Name**: Choose a custom URL name (e.g., `my-airline-system`).
+   - **Runtime**: Select **Docker** (Render will automatically auto-detect the `Dockerfile`).
+   - **Instance Type**: Select **Free**.
+5. Click **Deploy Web Service**.
+6. Render will build the container and provide you with a live URL (e.g., `https://my-airline-system.onrender.com/airlinereservation/login.html`).
+
+---
+
 ## 🔑 Pre-populated Test Accounts
 
 ### User Login Credentials
