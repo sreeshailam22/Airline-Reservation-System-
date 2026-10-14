@@ -627,6 +627,50 @@
   ],
   "bookings": [
     {
+      "bookingId": "AR-BK103",
+      "pnr": "AR-9YY5M",
+      "userId": "nav@gmail.com",
+      "flightId": "1",
+      "flightNo": "AI-201",
+      "airline": "Air India",
+      "aircraft": "Boeing 787-8 Dreamliner",
+      "sourceName": "Hyderabad (HYD)",
+      "destName": "South Africa (Johannesburg) (JNB)",
+      "sourceCode": "HYD",
+      "destCode": "JNB",
+      "flightDate": "2026-10-15",
+      "depTime": "06:30",
+      "arrTime": "15:45",
+      "duration": "9h 15m",
+      "stops": "Non-stop",
+      "gate": "G6",
+      "terminal": "T2",
+      "noOfPeople": 1,
+      "passengers": [
+        {
+          "name": "Mr. Naveen Kumar",
+          "gender": "Male",
+          "age": 30,
+          "passport": "P9482710",
+          "seat": "1A",
+          "meal": "Standard Meal",
+          "baggage": "15kg Check-in + 7kg Cabin"
+        }
+      ],
+      "seats": [
+        "1A"
+      ],
+      "costPerPerson": 14000,
+      "taxes": 1680,
+      "totalCost": 15680,
+      "status": "cancelled",
+      "bookedOn": "2026-10-14 15:43:24",
+      "paymentAccount": "30552909581",
+      "paymentHolder": "y.saikrishna",
+      "transactionId": "TXN-9004",
+      "checkedIn": false
+    },
+    {
       "bookingId": "AR-BK102",
       "pnr": "AR-RPDT4",
       "userId": "nav@gmail.com",
@@ -726,6 +770,30 @@
     }
   ],
   "transactions": [
+    {
+      "transactionId": "TXN-9005",
+      "bookingId": "AR-BK103",
+      "pnr": "AR-9YY5M",
+      "date": "2026-10-14 15:43:49",
+      "amount": 15680,
+      "fromAccount": "31120883421",
+      "toAccount": "30552909581",
+      "type": "REFUND",
+      "status": "SUCCESS",
+      "description": "Automated Refund for Cancelled Ticket PNR AR-9YY5M"
+    },
+    {
+      "transactionId": "TXN-9004",
+      "bookingId": "AR-BK103",
+      "pnr": "AR-9YY5M",
+      "date": "2026-10-14 15:43:24",
+      "amount": 15680,
+      "fromAccount": "30552909581",
+      "toAccount": "31120883421",
+      "type": "PAYMENT",
+      "status": "SUCCESS",
+      "description": "Booking confirmation payment for PNR AR-9YY5M (AI-201)"
+    },
     {
       "transactionId": "TXN-9003",
       "bookingId": "AR-BK102",
