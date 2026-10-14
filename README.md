@@ -26,6 +26,28 @@ A high-performance, full-featured commercial Airline Reservation & Passenger Ser
 
 ---
 
+## 🛠️ Languages & Technologies Used
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-Semantic%20Web-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-Modern%20UI%20%26%20Grid-1572B6?logo=css3&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON-Persistent%20Database-000000?logo=json&logoColor=white)
+![YAML](https://img.shields.io/badge/YAML-Render%20Cloud%20IaC-CB171E?logo=yaml&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Alpine%20Container-2496ED?logo=docker&logoColor=white)
+
+| Language / Technology | Layer | Primary Role in Application |
+| :--- | :--- | :--- |
+| **JavaScript (Node.js)** | Backend (`server.js`) | REST API engine, authentication, route matching, atomic bank transaction processing, automated refunds, and PNR generation. |
+| **JavaScript (Vanilla ES6+)** | Frontend (`public/js/app.js`) | Dynamic UI state manager, interactive aircraft cabin seat map selection, real-time validation, dynamic boarding pass generation. |
+| **HTML5** | Presentation (`public/index.html`) | Semantic structure for flight search wizard, passenger manifests, cabin fuselage view, boarding pass templates, modals, and data tables. |
+| **CSS3** | Styling (`public/css/style.css`) | Custom aviation design system, CSS Grid/Flexbox layouts, glassmorphism, responsive UI, aircraft seat map styling, and `@media print` physical boarding pass styles. |
+| **JSON** | Database (`data/airline_db.json`) | Persistent data store for flights, airports, bank accounts, bookings, and audit transaction records. |
+| **YAML** | DevOps (`render.yaml`) | Infrastructure-as-Code specification for automated zero-config deployment on Render. |
+| **Dockerfile** | Containerization (`Dockerfile`) | Packaging the system into a lightweight Node.js Alpine Linux container. |
+
+---
+
 ## 🚀 How to Run Locally (Easy Setup)
 
 ### Prerequisites

@@ -1,8 +1,11 @@
-# Force GitHub to detect source code inside the web_app directory
-web_app/**/*.java linguist-detectable=true
-web_app/**/*.jsp linguist-detectable=true
-web_app/**/*.html linguist-detectable=true
-web_app/**/*.sql linguist-detectable=true
+# Force GitHub Linguist to detect repository programming languages accurately
+*.js linguist-detectable=true linguist-language=JavaScript
+public/js/*.js linguist-detectable=true linguist-language=JavaScript
+public/css/*.css linguist-detectable=true linguist-language=CSS
+public/*.html linguist-detectable=true linguist-language=HTML
+render.yaml linguist-detectable=true linguist-language=YAML
+Dockerfile linguist-detectable=true linguist-language=Dockerfile
 
-# Mark vendor libraries as ignored so they don't skew stats
-web_app/WEB-INF/lib/* linguist-vendored
+# Exclude generated data and lockfiles from skewing language calculations
+data/*.json linguist-documentation
+package-lock.json linguist-generated
