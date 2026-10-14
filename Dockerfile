@@ -1,15 +1,24 @@
-# Use official Tomcat 9 image with Java 11
-FROM tomcat:9.0-jdk11-openjdk-slim
+# Multi-stage lightweight Node.js container (No Tomcat required!)
+FROM node:20-alpine
 
-# Remove default web applications to clean up
-RUN rm -rf /usr/local/tomcat/webapps/*
+# Set working directory
+WORKDIR /app
 
-# Copy the compiled war file into Tomcat's webapps folder as airlinereservation.war
-COPY airlinereservation1.war /usr/local/tomcat/webapps/ROOT.war
+# Copy dependency manifests
+COPY package*.json ./
 
-# Set environment variables if needed
-ENV PORT 8080
-EXPOSE 8080
+# Install production dependencies
+RUN npm ci --only=production
 
-# Start Tomcat
-CMD ["catalina.sh", "run"]
+# Copy application source code
+COPY . .
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Expose server port
+EXPOSE 3000
+
+# Start modern AeroSky Airline web application
+CMD ["node", "server.js"]

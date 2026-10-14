@@ -1,0 +1,25 @@
+{
+  "name": "airline-reservation-system",
+  "version": "2.0.0",
+  "description": "Modern full-featured Airline Reservation System with real-world airline booking workflow, visual seat selection, payment gateway, e-tickets, and self-service management.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "airline",
+    "reservation",
+    "booking",
+    "flight-search",
+    "seat-map",
+    "boarding-pass"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

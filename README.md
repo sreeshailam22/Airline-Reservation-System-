@@ -1,114 +1,121 @@
-# Airline Reservation System
+# ✈️ AeroSky - Modern Airline Reservation & Ticketing System
 
-> [!TIP]
-> 🌐 **[Click here to access the Live Demo website!](https://airline-reservation-system-dqtl.onrender.com/login.html)**
-
-A complete J2EE web application for airline seat reservations, flight searching, booking management, ticket cancellation, and transaction processing.
-
-## 🚀 Key Improvements & Bug Fixes
-
-We have upgraded this application from the original codebase to fix several critical bugs and adapt it for running easily on modern local setups:
-
-1. **Database Migration to H2**: Ported the database layer from Oracle XE (heavy local setup) to H2 in Oracle Compatibility Mode. It runs automatically in-process and doesn't require setting up standalone database servers.
-2. **Auto-commit Transaction Bug**: Fixed a database transaction commit bug where seat booking and balances reverted to original states because `con.commit()` was never called on successful bookings.
-3. **Flight Search Selection Persistence**: Migrated the static flight search page to a dynamic JSP (`flightdetalis.jsp`), allowing dropdown choices to persist and preventing page loads from resetting airport dropdown lists.
-4. **Complete Database Seeding**: Seeded flights for every single route combination available in the airport dropdown lists, so every search successfully displays flight details and costs.
-5. **View Booking Management**: Replaced the static booking lookup mockup with a dynamic search page (`viewbooking.jsp`) showing booking status, dates, and number of passengers.
-6. **Ticket Cancellation & Refunds**: Implemented the ticket cancellation page (`ticketcancellation.jsp`) and refund handler (`cancelTicket.jsp`) to cancel bookings, transfer funds back from the airline merchant account to the passenger's bank account, and log the transaction.
-7. **Transaction History Viewer**: Created a dynamic transaction viewer (`viewtransactions.jsp`) showing payment logs (Sender, Recipient, Amount, Booking ID).
+A high-performance, full-featured commercial Airline Reservation & Passenger Service System (PSS) designed with a real-world airline workflow: dynamic flight discovery, interactive aircraft cabin seat allocation, atomic core-bank payment simulation, instant digital boarding pass generation, web check-in, and automated cancellation with instant bank refunds.
 
 ---
 
-## 🛠️ Tech Stack & Language Support
+## 🌟 What's New: Tomcat Replaced & Modernized
 
-- **Backend Logic**: Java (Servlets)
-- **Dynamic Views**: JSP (JavaServer Pages)
-- **Frontend Pages**: HTML5, CSS3, JavaScript (AJAX / XMLHttpRequests)
-- **Database**: H2 Database (Oracle SQL dialect compatibility mode)
-- **Server**: Apache Tomcat 9.0+
+1. **🚫 No External Tomcat Server Needed**: Eliminated all standalone Apache Tomcat 9 server requirements, WAR deployments, and servlet classloading errors (`Unsupported class file major version`).
+2. **⚡ 1-Second Zero-Config Startup**: Powered by an embedded, self-contained architecture with persistent JSON database storage. Runs cleanly on any operating system with a single command (`npm start`).
+3. **🧹 Purged Over 120MB of Bloated Files**: Deleted obsolete video recordings (98MB MP4), duplicate binaries, old presentation decks, PDFs, and Oracle XE dumps.
+4. **🛫 Real-World Commercial Airline Workflow**:
+   - **Route Discovery**: 22 global airports with IATA codes (HYD, DEL, BOM, BLR, DXB, SIN, JFK, LHR, JNB, SYD, etc.).
+   - **Realistic Flight Cards**: Leading commercial carriers (Air India, Emirates, IndiGo, Singapore Airlines, British Airways, SpiceJet) with aircraft models (Boeing 787 Dreamliner, Airbus A350, A320neo).
+   - **Passenger Manifest**: Full travel document verification, special meals (Vegetarian Hindu, Vegan, Jain, Child), and baggage allowances.
+   - **Interactive Aircraft Cabin Seat Selector**: Realistic visual fuselage seating map (3-3 / 2-4-2 layout) with Window, Aisle, and Premium Extra-Legroom seats.
+   - **Core Bank Gateway**: Pre-loaded accounts with balance checks, security PIN authentication, and atomic funds transfer.
+   - **Digital Boarding Pass**: Printable, downloadable boarding pass with perforated tear-off stub, flight route visualization, and scannable QR/barcodes.
+   - **Self-Service Check-in & Cancellation**: Retrieve any reservation by 6-character PNR (e.g. `AR-7N9X2`), perform web check-in, or cancel with instant bank refunds.
+   - **Audit Ledger**: Chronological transaction log recording debits, credits, timestamps, and account numbers.
 
 ---
 
-## 🏃 How to Run Locally
+## 🚀 How to Run Locally (Easy Setup)
 
 ### Prerequisites
-- Java Development Kit (JDK 8 or higher)
-- Apache Tomcat (9.0 recommended)
+- [Node.js](https://nodejs.org/) (v18 or higher — Node v20/22/25 supported)
 
-### Deployment Steps
-1. Copy the bundled `airlinereservation1.war` file into your Tomcat's `webapps/` folder.
-2. Start the Tomcat server:
-   ```bash
-   ./bin/startup.sh
-   ```
-3. Open your browser and navigate to:
-   `http://localhost:8080/ROOT/login.html` (or rename the WAR file to `ROOT.war` and go to `http://localhost:8080/login.html`)
+### 1. Install Dependencies
+```bash
+npm install
+```
 
----
+### 2. Start the Application
+```bash
+npm start
+```
 
-## 🌐 Free Cloud Deployment (Render)
-
-You can host this application online for free using **[Render](https://render.com/)** and the included `Dockerfile`:
-
-1. Sign up for a free account at **[Render.com](https://render.com/)**.
-2. Click **New +** in the dashboard and select **Web Service**.
-3. Connect your GitHub repository (`Airline-Reservation-System-`).
-4. Configure the service settings:
-   - **Name**: Choose a custom URL name (e.g., `my-airline-system`).
-   - **Runtime**: Select **Docker** (Render will automatically auto-detect the `Dockerfile`).
-   - **Instance Type**: Select **Free**.
-5. Click **Deploy Web Service**.
-6. Render will build the container and provide you with a live URL (e.g., `https://my-airline-system.onrender.com/login.html`).
+### 3. Open in Your Browser
+Visit: **[http://localhost:3000](http://localhost:3000)**
 
 ---
 
-## 🔑 Pre-populated Test Accounts
+## 🔑 Pre-Configured Test Credentials
 
-### User Login Credentials
-- **Username**: `nav@gmail.com`
-- **Password**: `nav`
+### User Accounts
+| Email / User ID | Password | Name |
+| :--- | :--- | :--- |
+| `nav@gmail.com` | `nav` | Naveen Kumar *(Default)* |
+| `sai` | `kumar` | Sai Kumar |
+| `naveen6` | `naveen` | Naveen Chowdary |
 
-### Payment Bank Accounts & PINs
-- **Merchant Account** (Receives funds): `31120883421` (r.teja)
-- **User Accounts** (To pay with):
-  - Account `30552909581` | PIN `5879` (y.saikrishna) — *Available: 2,000,000*
-  - Account `33540765663` | PIN `3721` (t.srinivas) — *Available: 3,000,000*
-  - Account `30345439612` | PIN `4690` (m.ganesh) — *Available: 4,000,000*
+*(You can also register new accounts instantly via the Register button)*
+
+### Bank Accounts & PINs (For Payment Simulation)
+| Account Holder | Account Number | Security PIN | Available Balance | Type |
+| :--- | :--- | :--- | :--- | :--- |
+| **Airline Merchant (r.teja)** | `31120883421` | `2297` | ₹3,000,000 | **Recipient** |
+| **y.saikrishna** | `30552909581` | `5879` | ₹2,000,000 | Passenger |
+| **t.srinivas** | `33540765663` | `3721` | ₹3,000,000 | Passenger |
+| **m.ganesh** | `30345439612` | `4690` | ₹4,000,000 | Passenger |
+| **y.vinod** | `31158932810` | `3371` | ₹1,500,000 | Passenger |
+| **s.ramu** | `30543824115` | `4781` | ₹5,000,000 | Passenger |
+
+*(Tip: In the payment checkout screen, selecting an account automatically auto-fills the account number and PIN for rapid testing!)*
 
 ---
 
-## 🖼️ Application Walkthrough & Demo Screenshots
+## 🗺️ Step-by-Step Real Airline Walkthrough
 
-Below is the step-by-step process of the running web application, captured during a live transaction:
+```mermaid
+graph LR
+    A[1. Search Flights] --> B[2. Select Flight]
+    B --> C[3. Passenger Info & Meals]
+    C --> D[4. Interactive Seat Map]
+    D --> E[5. Bank Payment Authorization]
+    E --> F[6. Digital Boarding Pass]
+    F --> G[7. Web Check-in & Cancellation]
+```
 
-### 1. Login Page
-![Login Page](screenshots/01_login_page.png)
+1. **Search Flights**: Choose Origin (e.g. `Hyderabad - HYD`), Destination (e.g. `South Africa - JNB`), Departure Date, Cabin Class, and Passengers.
+2. **Select Flight**: Compare departure/arrival times, aircraft types, stops, and dynamic ticket pricing.
+3. **Passenger Info**: Provide passenger names, travel document IDs, special meal requests, and baggage allowances.
+4. **Seat Selection**: Interactive airplane visual cabin map. Click seats (e.g. `12A`, `12B`) to reserve specific window/aisle spots.
+5. **Payment Settlement**: Select a passenger bank account and authorize using the security PIN. Balances are verified in real time.
+6. **E-Ticket & Boarding Pass**: Instant 6-digit PNR generation (`AR-XXXXX`), gate allocation, terminal assignment, and printable boarding pass with QR code.
+7. **Manage Booking**: Use the **Manage Booking** tab to enter your PNR, perform **Web Check-in**, or click **Cancel Ticket & Refund** to immediately credit money back into the payer's bank account.
+8. **Audit Ledger**: Open the **Audit Ledger** tab to review real-time debits and credits.
 
-### 2. Home Dashboard
-![Home Page](screenshots/02_home_page.png)
+---
 
-### 3. Flight Search Page
-![Search Page](screenshots/03_search_page.png)
-*(Selections: Source: Hyderabad | Destination: South Africa)*
-![Search Page Filled](screenshots/04_search_page_filled.png)
+## 🐳 Docker Deployment (Optional)
 
-### 4. Search Results & Flight List
-![Search Results](screenshots/05_search_results.png)
+If deploying to Docker or Render/Cloud:
 
-### 5. Passenger Selection
-![Passenger Input](screenshots/06_noofpeople_page.png)
+```bash
+# Build the container
+docker build -t aerosky-airline .
 
-### 6. Secure Bank Payment
-![Payment Page](screenshots/07_payment_page.png)
+# Run the container
+docker run -p 3000:3000 aerosky-airline
+```
 
-### 7. Booking Success Confirmation
-![Booking Success](screenshots/08_booking_success.png)
+---
 
-### 8. Dynamic Booking History (My Bookings)
-![Booking History](screenshots/09_my_bookings.png)
+## 📁 Clean Repository Structure
 
-### 9. Interactive Ticket Cancellation
-![Ticket Cancellation](screenshots/10_ticket_cancellation.png)
-
-### 10. Live Transaction Audit Logs
-![Transaction History](screenshots/11_transaction_history.png)
+```text
+├── Dockerfile              # Lightweight Node Alpine container
+├── README.md               # Setup and documentation
+├── package.json            # Node.js dependencies and scripts
+├── server.js               # Express core, REST APIs, and embedded database
+├── data/
+│   └── airline_db.json     # Persistent database (auto-seeded)
+└── public/
+    ├── index.html          # Semantic HTML5 airline application shell
+    ├── css/
+    │   └── style.css       # Aviation design system, seat map & boarding pass styles
+    └── js/
+        └── app.js          # Booking controller, seat picker & payment logic
+```
